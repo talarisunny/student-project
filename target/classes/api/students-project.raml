@@ -1,0 +1,22 @@
+#%RAML 1.0
+title: students-project
+version: v1
+protocols: [HTTP,HTTPS]
+/student:
+  post:
+    queryParameters:
+      id:
+        required: true
+        example: "2"
+    body:
+      application/json:
+        example: !include examples/request/request-file.json
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include /examples/response/response-file.json
+      400:
+        body:
+          application/json:
+            example: !include /examples/response/400-error-response-file.json
